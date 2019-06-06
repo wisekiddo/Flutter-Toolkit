@@ -1,4 +1,4 @@
-#Thu Jun 06 12:58:16 SGT 2019
-base.0=/Users/nxgdev34/Downloads/flutter_app/build/app/intermediates/transforms/dexMerger/debug/0
+#Thu Jun 06 18:33:41 SGT 2019
+base.0=/Users/nxgdev34/Downloads/flutter/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
