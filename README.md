@@ -15,10 +15,10 @@ Flutter useful utilities and functionalities
 	- Send data and Navigate to another screen
 - Custom AppBar
 	- Transparent and elevation
-	- Leading and Action button
+	- Leading button and Action button
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTYxOTI3NTgsMTY5MjA5Njk3MiwxNj
-A4Mzk2OTIzLDEzMjE5NDcyNDksLTE5OTExNjg3NjMsLTI4NjIz
-Mzk3MSwtMTg4Mjc5MTU2N119
+eyJoaXN0b3J5IjpbLTE2MDg2MTU5MDYsLTE0OTYxOTI3NTgsMT
+Y5MjA5Njk3MiwxNjA4Mzk2OTIzLDEzMjE5NDcyNDksLTE5OTEx
+Njg3NjMsLTI4NjIzMzk3MSwtMTg4Mjc5MTU2N119
 -->
