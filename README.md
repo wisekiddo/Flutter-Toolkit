@@ -13,7 +13,11 @@ Flutter useful utilities and functionalities
 	- Using ListView.builder show the records
 	- Enable to select/click list record
 	- Send data and Navigate to another screen
+- AppBar redesign
+	- Transparent and elevation
+	- 
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMTk0NzI0OSwtMTk5MTE2ODc2MywtMj
-g2MjMzOTcxLC0xODgyNzkxNTY3XX0=
+eyJoaXN0b3J5IjpbMTYwODM5NjkyMywxMzIxOTQ3MjQ5LC0xOT
+kxMTY4NzYzLC0yODYyMzM5NzEsLTE4ODI3OTE1NjddfQ==
 -->
