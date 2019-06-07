@@ -1,5 +1,5 @@
 # Flutter Tools
-Flutter usefull utilities and functionalities
+Flutter useful utilities and functionalities
 
 
 ### Utilities
@@ -8,5 +8,5 @@ Flutter usefull utilities and functionalities
 ### Functionalities
 -  Send and Return data from a screen to another
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODI3OTE1NjddfQ==
+eyJoaXN0b3J5IjpbLTI4NjIzMzk3MSwtMTg4Mjc5MTU2N119
 -->
