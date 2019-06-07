@@ -16,9 +16,11 @@ Flutter useful utilities and functionalities
 - Custom AppBar
 	- Transparent and elevation
 	- Leading button and Action button
+	- 
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDg2MTU5MDYsLTE0OTYxOTI3NTgsMT
-Y5MjA5Njk3MiwxNjA4Mzk2OTIzLDEzMjE5NDcyNDksLTE5OTEx
-Njg3NjMsLTI4NjIzMzk3MSwtMTg4Mjc5MTU2N119
+eyJoaXN0b3J5IjpbLTE5MTgyNzMyNywtMTYwODYxNTkwNiwtMT
+Q5NjE5Mjc1OCwxNjkyMDk2OTcyLDE2MDgzOTY5MjMsMTMyMTk0
+NzI0OSwtMTk5MTE2ODc2MywtMjg2MjMzOTcxLC0xODgyNzkxNT
+Y3XX0=
 -->
