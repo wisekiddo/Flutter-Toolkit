@@ -5,30 +5,28 @@ import 'package:flutter_app/models/Todo.dart';
 import 'DetailScreen.dart';
 
 
-class TodosScreen extends StatefulWidget {
-    List<Todo> todos;
+class TodoListScreen extends StatefulWidget {
 
-    TodosScreen({Key key, @required this.todos}) : super(key: key);
+    final List<Todo> todoList;
+
+    TodoListScreen({Key key, @required this.todoList}) : super(key: key);
 
     @override
-    State createState() => new DyanmicList(todos: todos);
+    State createState() => new DynamicList(todoList: todoList);
 }
 
-class DyanmicList extends State<TodosScreen> {
-    List<Todo> todos;
-    DyanmicList({Key key, @required this.todos}) ;
-    int counter;
+class DynamicList extends State<TodoListScreen> {
+
+    final List<Todo> todoList;
+    DynamicList({Key key, @required this.todoList}) ;
 
     void _incrementCounter() {
         setState(() {
-            todos.add(Todo("Added $todos.length", "$todos.length" ));
+            todoList.add(Todo("Added Todo ${todoList.length.toString()}",
+                   "A description of what needs to be done for Todo ${todoList.length.toString()}" ));
             // This call to setState tells the Flutter framework that something has
             // changed in this State, which causes it to rerun the build method below
-            // so that the display can reflect the updated values. If we changed
-            // _counter without calling setState(), then the build method would not be
-            // called again, and so nothing would appear to happen.
-           // _counter++;
-           // todos.add
+            // so that the display can reflect the updated values. 
         });
     }
 
@@ -39,10 +37,10 @@ class DyanmicList extends State<TodosScreen> {
                 title: Text('Todos'),
             ),
             body: ListView.builder(
-                itemCount: todos.length,
+                itemCount: todoList.length,
                 itemBuilder: (context, index) {
                     return ListTile(
-                        title: Text(todos[index].title),
+                        title: Text(todoList[index].title),
                         // When a user taps on the ListTile, navigate to the DetailScreen.
                         // Notice that we're not only creating a DetailScreen, we're
                         // also passing the current todo through to it!
@@ -50,7 +48,7 @@ class DyanmicList extends State<TodosScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DetailScreen(todo: todos[index]),
+                                    builder: (context) => DetailScreen(todo: todoList[index]),
                                 ),
                             );
                         },
