@@ -10,7 +10,9 @@ Flutter useful utilities and functionalities
 
 ### Functionalities
 -  Send and Return data from a screen to another
+	- Using ListView.builder show the records
+	- Navigate to another screen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjY1OTU4OTIsLTI4NjIzMzk3MSwtMT
+eyJoaXN0b3J5IjpbLTE5OTExNjg3NjMsLTI4NjIzMzk3MSwtMT
 g4Mjc5MTU2N119
 -->
