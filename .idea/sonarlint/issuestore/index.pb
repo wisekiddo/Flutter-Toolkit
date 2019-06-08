@@ -13,3 +13,10 @@ J
 ios/Flutter/Debug.xcconfig,0/0/000e7013d35dd014f463168b55b75a1c98b25bb8
 P
  lib/features/TodoListScreen.dart,9/a/9a692a734313ce120442cb1be386c3e841cd2b16
+;
+_config.yml,c/d/cd089ae45ce870c45e434019e8f1ed4f066cd425
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+<
+pubspec.yaml,e/8/e8e045469170189f1d6ef12576bd01af132b1018

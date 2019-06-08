@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     DeviceInfo.getInformation().then((Specification spec) {
-      debugPrint('Manufacturer: $spec.manufacturer');
-      debugPrint('Device: $spec.device');
-      debugPrint('Model: $spec.model');
+      debugPrint('Manufacturer: ${spec.manufacturer}');
+      debugPrint('Device: ${spec.device}');
+      debugPrint('Model: ${spec.model}');
     });
 
     return MaterialApp(
