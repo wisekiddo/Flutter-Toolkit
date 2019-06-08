@@ -82,7 +82,25 @@ class DynamicList extends State<TodoListScreen> {
       itemCount: todoList.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(todoList[index].title),
+          title: Text(
+            todoList[index].title,
+            textAlign: TextAlign.left,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70),
+          ),
+          trailing: Icon(Icons.keyboard_arrow_right, color: Colors.white70),
+          leading: GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {},
+            child: Container(
+              width: 48,
+              height: 48,
+              padding: EdgeInsets.symmetric(vertical: 1.0),
+              alignment: Alignment.center,
+              child: Icon(Icons.album, color: Colors.white70,),
+            ),
+          ),
+
           // When a user taps on the ListTile, navigate to the DetailScreen.
           // Notice that we're not only creating a DetailScreen, we're
           // also passing the current todo through to it!
@@ -101,25 +119,19 @@ class DynamicList extends State<TodoListScreen> {
 
     final Widget content = Center(
       child: Stack(
-
-      //To have the control for AppBar
-      children: <Widget>[
-        Container(
-          color: Colors.blueAccent,
-        ),
-
-        listView,
-
-        Positioned(
-          top: 0.0,
-          left: 0.0,
-          right: 0.0,
-          child: topAppBar,
-        ),
-
-
-
-      ],
+        //To have the control for AppBar
+        children: <Widget>[
+          Container(
+            color: Colors.blueAccent,
+          ),
+          listView,
+          Positioned(
+            top: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: topAppBar,
+          ),
+        ],
       ),
     );
 
@@ -166,7 +178,6 @@ class DynamicList extends State<TodoListScreen> {
 
     return Scaffold(
       bottomNavigationBar: bottomNavigationBar,
-
       floatingActionButton: FloatingActionButton(
         onPressed: addTodo,
         backgroundColor: Colors.lightGreenAccent,
@@ -176,7 +187,6 @@ class DynamicList extends State<TodoListScreen> {
           color: Colors.black,
         ),
       ),
-
       body: content,
     );
   }
