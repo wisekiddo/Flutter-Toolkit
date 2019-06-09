@@ -117,23 +117,26 @@ class DynamicList extends State<TodoListScreen> {
       },
     );
 
-    final Widget content = Center(
-      child: Stack(
+    final Widget content =  Stack(
+
         //To have the control for AppBar
         children: <Widget>[
           Container(
             color: Colors.blueAccent,
           ),
-          listView,
+
+        listView,
+
           Positioned(
             top: 0.0,
             left: 0.0,
             right: 0.0,
             child: topAppBar,
           ),
+
+
         ],
-      ),
-    );
+      );
 
     final customScrollView = CustomScrollView(
       slivers: <Widget>[
@@ -187,7 +190,7 @@ class DynamicList extends State<TodoListScreen> {
           color: Colors.black,
         ),
       ),
-      body: content,
+      body: LayoutBuilder(builder: (context, constraints) => content)
     );
   }
 }
