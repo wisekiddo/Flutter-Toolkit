@@ -13,7 +13,11 @@ class TodoListScreen extends StatefulWidget {
 
   @override
   State createState() => new DynamicList(todoList: todoList);
+
 }
+
+ScrollController scrollController;
+
 
 class DynamicList extends State<TodoListScreen> {
   final List<Todo> todoList;
@@ -21,13 +25,33 @@ class DynamicList extends State<TodoListScreen> {
   DynamicList({Key key, @required this.todoList});
 
   void addTodo() {
+    // This call to setState tells the Flutter framework that something has
+    // changed in this State, which causes it to rerun the build method below
+    // so that the display can reflect the updated values.
     setState(() {
+      //This will add new item to the list
       todoList.add(Todo("Added Todo ${todoList.length.toString()}",
           "A description of what needs to be done for Todo ${todoList.length.toString()}"));
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values.
+
+
+      //This will scroll to the end of the list or to the new added item
+      scrollController.animateTo(scrollController.position.maxScrollExtent ,
+          curve: Curves.linear, duration: Duration(milliseconds: 400));
     });
+
+
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    scrollController = ScrollController();
+    super.initState();
   }
 
   @override
@@ -39,19 +63,19 @@ class DynamicList extends State<TodoListScreen> {
       centerTitle: true,
       backgroundColor: Colors.transparent,
       leading: new IconButton(
-        icon: new Icon(Icons.bookmark),
+        icon: new Icon(Icons.menu),
         onPressed: () {},
       ),
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.list),
+          icon: Icon(Icons.blur_on),
           onPressed: () {},
         )
       ],
     );
 
     final bottomNavigationBar = Container(
-      height: 55.0,
+      height: 40.0,
       child: BottomAppBar(
         color: Color.fromRGBO(58, 66, 86, 1.0),
         child: Row(
@@ -78,16 +102,18 @@ class DynamicList extends State<TodoListScreen> {
       ),
     );
 
-    final ListView listView = ListView.builder(
+    final listView = ListView.builder(
       itemCount: todoList.length,
+      physics: BouncingScrollPhysics(),
+      controller: scrollController,
       itemBuilder: (context, index) {
         return ListTile(
           title: Text(
             todoList[index].title,
-            textAlign: TextAlign.left,
-            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.start,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70),
           ),
+
           trailing: Icon(Icons.keyboard_arrow_right, color: Colors.white70),
           leading: GestureDetector(
             behavior: HitTestBehavior.translucent,
@@ -96,8 +122,11 @@ class DynamicList extends State<TodoListScreen> {
               width: 48,
               height: 48,
               padding: EdgeInsets.symmetric(vertical: 1.0),
-              alignment: Alignment.center,
-              child: Icon(Icons.album, color: Colors.white70,),
+              alignment: Alignment.centerLeft,
+              child: Icon(
+                Icons.album,
+                color: Colors.blueGrey,
+              ),
             ),
           ),
 
@@ -117,80 +146,50 @@ class DynamicList extends State<TodoListScreen> {
       },
     );
 
-    final Widget content =  Stack(
-
-        //To have the control for AppBar
-        children: <Widget>[
-          Container(
-            color: Colors.blueAccent,
-          ),
-
-        listView,
-
-          Positioned(
-            top: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: topAppBar,
-          ),
-
-
-        ],
-      );
-
-    final customScrollView = CustomScrollView(
-      slivers: <Widget>[
-        SliverList(
-          delegate: SliverChildListDelegate(
-            [
-              //HeaderWidget("Header 1"),
-              //HeaderWidget("Header 2"),
-              //HeaderWidget("Header 3"),
-              //HeaderWidget("Header 4"),
-            ],
+    //This will provide masking for the list elements
+    final contentMask = Container(
+      width: double.infinity,
+      height: 20,
+      child: Opacity(
+        opacity: 1.0,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                // We just need 1 color for start and end(alpha 0)
+                Colors.lightBlueAccent,
+                Colors.lightBlueAccent.withAlpha(0),
+              ],
+            ),
           ),
         ),
-        SliverList(
-          delegate: SliverChildListDelegate(
-            [
-              //BodyWidget(Colors.blue),
-              //BodyWidget(Colors.red),
-              //BodyWidget(Colors.green),
-              // BodyWidget(Colors.orange),
-              //BodyWidget(Colors.blue),
-              //BodyWidget(Colors.red),
-            ],
-          ),
-        ),
-        SliverGrid(
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          delegate: SliverChildListDelegate(
-            [
-              //BodyWidget(Colors.blue),
-              //BodyWidget(Colors.green),
-              // BodyWidget(Colors.yellow),
-              //BodyWidget(Colors.orange),
-              //BodyWidget(Colors.blue),
-              //BodyWidget(Colors.red),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
 
     return Scaffold(
-      bottomNavigationBar: bottomNavigationBar,
-      floatingActionButton: FloatingActionButton(
-        onPressed: addTodo,
-        backgroundColor: Colors.lightGreenAccent,
-        tooltip: 'Increment',
-        child: Icon(
-          Icons.add,
-          color: Colors.black,
+        backgroundColor: Colors.lightBlueAccent,
+        bottomNavigationBar: bottomNavigationBar,
+        floatingActionButton: FloatingActionButton(
+          onPressed: addTodo,
+          backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+          tooltip: 'Increment',
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
-      ),
-      body: LayoutBuilder(builder: (context, constraints) => content)
-    );
+        appBar: topAppBar,
+        body: Stack(
+          //The children sequence is important to achieve masking
+          children: <Widget>[
+            listView,
+            Container(
+              child: contentMask,
+            ),
+          ],
+        ));
   }
 }
+
