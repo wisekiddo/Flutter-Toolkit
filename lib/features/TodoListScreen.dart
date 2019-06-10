@@ -33,9 +33,8 @@ class DynamicList extends State<TodoListScreen> {
       todoList.add(Todo("Added Todo ${todoList.length.toString()}",
           "A description of what needs to be done for Todo ${todoList.length.toString()}"));
 
-
       //This will scroll to the end of the list or to the new added item
-      scrollController.animateTo(scrollController.position.maxScrollExtent ,
+      scrollController.animateTo(scrollController.position.maxScrollExtent  + 50,
           curve: Curves.linear, duration: Duration(milliseconds: 400));
     });
 
@@ -107,7 +106,8 @@ class DynamicList extends State<TodoListScreen> {
       physics: BouncingScrollPhysics(),
       controller: scrollController,
       itemBuilder: (context, index) {
-        return ListTile(
+
+        var listTile=ListTile(
           title: Text(
             todoList[index].title,
             textAlign: TextAlign.start,
@@ -143,6 +143,7 @@ class DynamicList extends State<TodoListScreen> {
             // Scrollable.ensureVisible(context);
           },
         );
+        return listTile;
       },
     );
 
