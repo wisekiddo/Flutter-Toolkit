@@ -3,3 +3,28 @@
 build/*
 build/**
 *
+
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+
+# Sonarlint plugin
+.idea/sonarlint
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
