@@ -20,3 +20,5 @@ P
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 <
 pubspec.yaml,e/8/e8e045469170189f1d6ef12576bd01af132b1018
+C
+locale/i18n_zh.json,0/a/0a816ea4f417c0ebaa2266e7a7af41a43efd1ede

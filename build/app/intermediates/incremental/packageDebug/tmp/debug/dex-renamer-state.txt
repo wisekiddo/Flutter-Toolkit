@@ -1,4 +1,4 @@
-#Mon Jun 10 22:32:33 SGT 2019
-base.0=/Users/ronaldgbernardo/Desktop/UWFlutter/Flutter-Toolkit/build/app/intermediates/transforms/dexMerger/debug/0
+#Wed Jun 19 00:59:42 SGT 2019
+base.0=/Users/mojave/Desktop/UWFlutter/Flutter-Toolkit/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
